@@ -1,11 +1,23 @@
 {
   "name": "react-detection",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
+  "source": "./lib/main.ts",
+  "main": "dist/react-detection.js",
+  "module": "dist/react-detection.esm.js",
+  "umd:main": "dist/react-detection.umd.js",
+  "types": "dist/main.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/react-detection.js",
+      "require": "./dist/react-detection.cjs.js"
+    },
+    "./package.json": "./package.json"
+  },
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "microbundle --jsx React.createElement --jsxFragment React.Fragment --tsconfig tsconfig.build.json",
+    "tsc": "tsc",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
@@ -14,6 +26,9 @@
     "react-dom": "^18.2.0"
   },
   "dependencies": {
+    "@mediapipe/camera_utils": "^0.3.1675466862",
+    "@mediapipe/face_detection": "^0.4.1646425229",
+    "@mediapipe/drawing_utils": "^0.3.1675466124",
     "react-webcam": "^7.2.0"
   },
   "devDependencies": {
@@ -27,7 +42,10 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "microbundle": "^0.15.1",
     "postcss": "^8.4.38",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
