@@ -1,6 +1,10 @@
+import { FaceDetection } from "../lib/FaceDetection"
+
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <FaceDetection />
+    </div>
   )
 }
 
